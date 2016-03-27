@@ -1,0 +1,10 @@
+/.idea
+/client/bower_components
+/client/css/tradeBlotter.min.css
+/client/production.min.js
+/client/test/results
+/client/views/tradeBlotter.views.min.js
+/dist
+/log
+/node_modules
+/npm-debug.log

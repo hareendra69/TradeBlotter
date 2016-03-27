@@ -1,0 +1,30 @@
+<div ng-controller="TradeBlotterController">
+     <!-- ===== template files ===== -->
+    <script type="text/ng-template" id="src/treebrowser/docs/treeHeader.html">
+        <div>
+            <span class="cell pull-left">Group</span>
+            <span class="cell pull-left">Txn Id</span>
+            <span class="cell pull-left">Quantity</span>
+            <span class="cell pull-left">Price</span>
+            <span class="cell pull-left">Mkt Value</span>
+            <span class="cell pull-left">P/L</span>
+        </div>
+    </script>
+    
+    <!-- ===== Usage with border & header ===== -->
+
+   
+    <button class="btn btn-primary customBtn pull-right" ng-click="clculatePL()">Calculate P/L</button>
+    
+    <ad-tree-browser ng-if="root.children.length" 
+                     class="ad-border-default"
+                     tree-name="treeDemoBordered"
+                     row-ng-class="{added:item._selected}"
+                     tree-root="root"
+                     child-node="children"
+                     children-padding="5"
+                     bordered="true"
+                     node-header-url="src/treebrowser/docs/treeHeader.html"
+                     node-template-url="modules/tradeBlotter/tradeBlotterNode.html">
+    </ad-tree-browser>
+ </div>
