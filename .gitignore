@@ -1,5 +1,5 @@
-/.idea
-/client/bower_components
+
+/client/bower_components/
 /client/css/tradeBlotter.min.css
 /client/production.min.js
 /client/test/results
