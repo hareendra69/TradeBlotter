@@ -46,11 +46,10 @@ The project has the following structure.
     git clone https://github.com/hareendra69/TradeBlotter.git
     ```
 
-2.  Go to your app's root folder (
+2.  Go to your app's root folder (from whatever directory contains your app folder )
     ```
     cd TradeBlotter
     ```
-     from whatever directory contains your app folder )
 
 3.  Install node modules. You might encounter an error, so retry if you have an issue:
     ```
