@@ -1,36 +1,39 @@
 var tradeBlotter = angular.module('TradeBlotter');
-// tradeBlotter.config(function($adConfigProvider) {
-//     'use strict';
 
-//     $adConfigProvider.iconClasses.expand = 'glyphicon glyphicon-triangle-right';
-//     $adConfigProvider.iconClasses.collapse = 'glyphicon glyphicon-triangle-bottom';
-// });
 tradeBlotter.controller('TradeBlotterController', tradeBlotterController);
 
-tradeBlotterController.$inject = ['$scope', '$http']; // What does inject do?
+tradeBlotterController.$inject = ['$scope', '$http']; 
 
 function tradeBlotterController($scope, $http){
     'use strict'
-    
-    $scope.calcultePL = function(){
-        alert("Calculateing....");
-    }
-    
-    function getTrades(){
-        var uri = '/tree/getTrades/false';
+    $scope.states = {
+        loadingSpinner : true
+    }; 
+    $scope.calculatePL = function(showPL){
+         getTrades(showPL);
+    };
+          
+    function getTrades(showPL) {
+        refreshTree();
+        $scope.states.loadingSpinner = true;
+        var uri = '/tree/getTrades/'+showPL;
         $http.get(uri).then(onSuccess, onError).finally(function(){
-            $scope.states.loadingTreeData= false;
+         $scope.states.loadingSpinner= false;
         });        
     };
-    function onSuccess(data){
-        
+    function onSuccess(data) {        
         $scope.root = {
             children: data.data
-        }
-        
+        }        
     }
     function onError(error){
         console.log("Error :: ", error);
     }
-    getTrades();
+    
+    function refreshTree() {
+        $scope.root = {
+            children: {}
+        };
+    }
+    getTrades(false);
 }

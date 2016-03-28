@@ -8,14 +8,15 @@
             <span class="cell pull-left">Price</span>
             <span class="cell pull-left">Mkt Value</span>
             <span class="cell pull-left">P/L</span>
+            <span class="cell pull-left">O.Quan</span>
         </div>
     </script>
     
     <!-- ===== Usage with border & header ===== -->
 
    
-    <button class="btn btn-primary customBtn pull-right" ng-click="clculatePL()">Calculate P/L</button>
-    
+    <button class="btn btn-primary customBtn pull-right" ng-click="calculatePL(true)">Calculate P/L</button>
+    <ad-loading-overlay z-index="2000" position="absolute" loading-icon-size="2em" loading="states.loadingSpinner" loading-icon-class="glyphicon glyphicon-refresh ad-spin"></ad-loading-overlay>
     <ad-tree-browser ng-if="root.children.length" 
                      class="ad-border-default"
                      tree-name="treeDemoBordered"
@@ -25,6 +26,8 @@
                      children-padding="5"
                      bordered="true"
                      node-header-url="src/treebrowser/docs/treeHeader.html"
-                     node-template-url="modules/tradeBlotter/tradeBlotterNode.html">
+                     node-template-url="modules/tradeBlotter/tradeBlotterNode.html"
+                     toggle-callback="toggleInfoPanel"
+                     >
     </ad-tree-browser>
  </div>

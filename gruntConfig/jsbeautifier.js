@@ -7,6 +7,8 @@ module.exports = function() {
             'gruntConfig/*.js',
             'client/*.js',
             'client/modules/*.js',
+            'server/controller/*.js',
+            'server/routes/*.js',
             'client/test/e2e/*.js'
         ],
         options: {
