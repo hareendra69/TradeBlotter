@@ -14,20 +14,22 @@
     
     <!-- ===== Usage with border & header ===== -->
 
-   
-    <button class="btn btn-primary customBtn pull-right" ng-click="calculatePL(true)">Calculate P/L</button>
-    <ad-loading-overlay z-index="2000" position="absolute" loading-icon-size="2em" loading="states.loadingSpinner" loading-icon-class="glyphicon glyphicon-refresh ad-spin"></ad-loading-overlay>
-    <ad-tree-browser ng-if="root.children.length" 
-                     class="ad-border-default"
-                     tree-name="treeDemoBordered"
-                     row-ng-class="{added:item._selected}"
-                     tree-root="root"
-                     child-node="children"
-                     children-padding="5"
-                     bordered="true"
-                     node-header-url="src/treebrowser/docs/treeHeader.html"
-                     node-template-url="modules/tradeBlotter/tradeBlotterNode.html"
-                     toggle-callback="toggleInfoPanel"
-                     >
-    </ad-tree-browser>
+   <div class="col-md-12">
+        <button class="btn btn-primary customBtn pull-right" ng-click="calculatePL(true)">Calculate P/L</button>
+        <ad-loading-overlay z-index="2000" position="absolute" loading-icon-size="2em" loading="states.loadingSpinner" loading-icon-class="glyphicon glyphicon-refresh ad-spin"></ad-loading-overlay>
+        <div class="treeContainer"><ad-tree-browser ng-if="root.children.length" 
+                        class="ad-border-default"
+                        tree-name="treeDemoBordered"
+                        row-ng-class="{added:item._selected}"
+                        tree-root="root"
+                        child-node="children"
+                        children-padding="5"
+                        bordered="true"
+                        node-header-url="src/treebrowser/docs/treeHeader.html"
+                        node-template-url="modules/tradeBlotter/tradeBlotterNode.html"
+                        toggle-callback="toggleInfoPanel"
+                        >
+        </ad-tree-browser>
+        </div>
+   </div>
  </div>

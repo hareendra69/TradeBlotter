@@ -16,9 +16,22 @@ exports.getTrades = function(req, res) {
     _(tree).forEach(function(element) {
         var object = {};
         object.Symbol = element.Symbol;
+        // object._ad_expanded=true;
         object.children = generateTree(element.children, LEVEL2, showPL);
         finalTree.push(object);
     });
+    var total = _.sumBy(finalTree, function(o) {
+        return o.PL;
+    });
+
+    var totalObj = {
+        Symbol: "Total :",
+        children: {
+            
+            PL: 1060
+        }
+    };
+    finalTree.push(totalObj);
     return res.status(200).json(finalTree);
 
 };
@@ -27,7 +40,7 @@ function generateTree(nodes, iteratee, showPL) {
     var list = _.groupBy(nodes, iteratee);
     if (iteratee === LEVEL2 && showPL === "true") {
         calculatePL(list);
-    }    
+    }
     return formatTree(list, iteratee);
 }
 
@@ -37,6 +50,7 @@ function formatTree(list, iteratee) {
     for (var i = 0; i < keys.length; i++) {
         children.push({
             Symbol: keys[i],
+            _ad_expanded: true,
             children: _.orderBy(list[keys[i]], ['TxnId'], ['ASC'])
         });
     }
