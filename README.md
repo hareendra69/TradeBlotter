@@ -60,3 +60,8 @@ The project has the following structure.
     ```
     grunt
     ```
+4. Open your browser and type http://localhost:3000  to launch the application
+
+5. To run the tests run the below command
+   ```
+   grunt karma
