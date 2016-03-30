@@ -27,7 +27,7 @@ exports.getTrades = function(req, res) {
     var totalObj = {
         Symbol: "Total :",
         children: {
-            
+
             PL: 1060
         }
     };

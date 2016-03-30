@@ -32,7 +32,7 @@ function tradeBlotterController($scope, $http){
     
     function refreshTree() {
         $scope.root = {
-            children: {}
+            children: []
         };
     }
     getTrades(false);
